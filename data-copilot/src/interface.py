@@ -15,8 +15,7 @@ class llmInterface:
         if response.status_code != 200:
             raise Exception(f"Request failed with status code {response.status_code} : {response.text}")
         
-        reply = self.extractReply(self, response) 
-        return reply
+        return self.extractReply(self, response)  
     
     def extractReply(self, response):
         reply = ""
