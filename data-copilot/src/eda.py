@@ -16,8 +16,8 @@ class EDA:
         details["row"] = self.df.shape[0]
         details["column"] = self.df.shape[1]
         details["summary"] = {}
-        details["summary"]["mean"] = self.df.describe().iloc["mean"].to_dict()
-        details["summary"]["median"] = self.df.descirbe().iloc["50%"].to_dict()
+        details["summary"]["mean"] = self.df.describe().loc["mean"].to_dict()
+        details["summary"]["median"] = self.df.describe().loc["50%"].to_dict()
         details["dataTypes"] = {}
         details["dataTypes"]["numeric"] = self.df.select_dtypes(include=["number"]).columns.tolist()
         details["dataTypes"]["categorical"] = self.df.select_dtypes(include=["object"]).columns.tolist()

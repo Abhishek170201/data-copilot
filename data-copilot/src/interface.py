@@ -1,5 +1,8 @@
 import requests
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 class llmInterface:
 
@@ -12,10 +15,11 @@ class llmInterface:
             json={"model": self.model, "messages": messages}
         )
 
+        logger.info(f"Received response code :{response.status_code}")
         if response.status_code != 200:
             raise Exception(f"Request failed with status code {response.status_code} : {response.text}")
         
-        return self.extractReply(self, response)  
+        return self.extractReply(response)  
     
     def extractReply(self, response):
         reply = ""
