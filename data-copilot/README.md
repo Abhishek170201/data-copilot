@@ -31,33 +31,11 @@ Optional Visualization: Generate plots for trends, distributions, or correlation
 Local & Cloud-Compatible: Supports running LLMs locally (Ollama, Gemma3) or via cloud APIs (OpenAI, LlamaIndex, LangChain).
 
 Design:
+flowchart TD
+    A[User Interface] <--> B[Chat Manager / Conversation Layer] <--> C[Agent / RAG Layer]
+    C --> D[LLM Integration]
+    D --> E[Data / Tools Layer]
 
-+--------------------+        +--------------------+        +--------------------+
-|                    |        |                    |        |                    |
-|   User Interface   | <----> |   Chat Manager /   | <----> |   Agent / RAG      |
-|  (CLI / Streamlit) |        | Conversation Layer |        |   Layer            |
-|                    |        |                    |        |                    |
-+--------------------+        +--------------------+        +--------------------+
-                                        |
-                                        v
-                              +--------------------+
-                              |                    |
-                              |   LLM Integration  |
-                              |  (Ollama / Gemma3) |
-                              |                    |
-                              +--------------------+
-                                        |
-                                        v
-                              +--------------------+
-                              |                    |
-                              |   Data / Tools     |
-                              |  - Pandas DataFrame |
-                              |  - Query Functions |
-                              |  - EDA Summary     |
-                              |  - Visualization   |
-                              |    (Matplotlib /   |
-                              |     Plotly)        |
-                              +--------------------+
 
 Usage
 
